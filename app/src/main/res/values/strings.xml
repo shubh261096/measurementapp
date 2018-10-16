@@ -16,4 +16,7 @@
 -->
 <resources>
     <string name="app_name">HelloSceneform</string>
+    <string name="length">length</string>
+    <string name="height">height</string>
+    <string name="clear">Clear</string>
 </resources>
