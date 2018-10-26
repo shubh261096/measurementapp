@@ -39,8 +39,7 @@ android {
             abiFilters 'arm64-v8a', 'x86'
         }
     }
-    // Sceneform libraries use language constructs from Java 8.
-    // Add these compile options if targeting minSdkVersion < 26.
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -58,16 +57,7 @@ android {
 }
 
 dependencies {
-
-    // Provides ArFragment, and other Sceneform UX resources:
-    implementation "com.google.ar.sceneform.ux:sceneform-ux:1.5.0"
-
-    // Use the Sceneform Ux Package built from the source files included in the sceneformux folder.
-    //api project(":sceneformux")
-
-    // Alternatively, use ArSceneView without the UX dependency.
-    //implementation "com.google.ar.sceneform:core:1.5.0"
-
+    implementation "com.google.ar.sceneform.ux:sceneform-ux:1.5.1"
     implementation "com.android.support:appcompat-v7:27.1.1"
 }
 

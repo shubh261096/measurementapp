@@ -46,8 +46,8 @@ public class HelloSceneformActivity extends AppCompatActivity implements Node.On
     private static final String TAG = HelloSceneformActivity.class.getSimpleName();
     private static final double MIN_OPENGL_VERSION = 3.0;
 
-    ArrayList<Float> arrayList1 = new ArrayList<Float>();
-    ArrayList<Float> arrayList2 = new ArrayList<Float>();
+    ArrayList<Float> arrayList1 = new ArrayList<>();
+    ArrayList<Float> arrayList2 = new ArrayList<>();
     private ArFragment arFragment;
     private AnchorNode lastAnchorNode;
     private TextView txtDistance;
@@ -280,7 +280,7 @@ public class HelloSceneformActivity extends AppCompatActivity implements Node.On
     @Override
     public void onUpdate(FrameTime frameTime) {
         Frame frame = arFragment.getArSceneView().getArFrame();
-        Collection<Anchor> updatedAnchors = frame.getUpdatedAnchors();
+//        Collection<Anchor> updatedAnchors = frame.getUpdatedAnchors();
 //        for (Anchor anchor : updatedAnchors) {
 //            Handle updated anchors...
 //        }
