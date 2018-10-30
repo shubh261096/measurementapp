@@ -36,7 +36,7 @@
         <meta-data android:name="com.google.ar.core" android:value="required" />
 
         <activity
-            android:name=".HelloSceneformActivity"
+            android:name=".MainActivity"
             android:label="@string/app_name"
             android:configChanges="orientation|screenSize"
             android:theme="@style/Theme.AppCompat.NoActionBar"
