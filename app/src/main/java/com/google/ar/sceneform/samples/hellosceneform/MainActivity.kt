@@ -35,8 +35,8 @@ class MainActivity : AppCompatActivity(), Node.OnTapListener, Scene.OnUpdateList
     var arrayList2 = ArrayList<Float>()
     lateinit var arFragment: ArFragment
     var lastAnchorNode: AnchorNode? = null
-    lateinit var cubeRenderable: ModelRenderable
-    lateinit var heightRenderable: ModelRenderable
+    var cubeRenderable: ModelRenderable? = null
+    var heightRenderable: ModelRenderable? = null
     var btnHeightClicked: Boolean = false
     var btnLengthClicked: Boolean = false
     var point1: Vector3? = null
@@ -72,16 +72,16 @@ class MainActivity : AppCompatActivity(), Node.OnTapListener, Scene.OnUpdateList
                 .thenAccept { material ->
                     val vector3 = Vector3(0.01f, 0.01f, 0.01f)
                     cubeRenderable = ShapeFactory.makeCube(vector3, Vector3.zero(), material)
-                    cubeRenderable.isShadowReceiver = false
-                    cubeRenderable.isShadowCaster = false
+                    cubeRenderable?.isShadowReceiver = false
+                    cubeRenderable?.isShadowCaster = false
                 }
 
         MaterialFactory.makeTransparentWithColor(this, Color(0F, 0F, 244F))
                 .thenAccept { material ->
                     val vector3 = Vector3(0.007f, 0.1f, 0.007f)
                     heightRenderable = ShapeFactory.makeCube(vector3, Vector3.zero(), material)
-                    heightRenderable.isShadowCaster = false
-                    heightRenderable.isShadowReceiver = false
+                    heightRenderable?.isShadowCaster = false
+                    heightRenderable?.isShadowReceiver = false
                 }
 
         arFragment.setOnTapArPlaneListener { hitResult, plane, motionEvent ->
@@ -101,9 +101,8 @@ class MainActivity : AppCompatActivity(), Node.OnTapListener, Scene.OnUpdateList
                 transformableNode.setParent(anchorNode)
                 transformableNode.renderable = heightRenderable
                 transformableNode.select()
-                val scaleController = transformableNode.scaleController
-                scaleController.maxScale = 10f
-                scaleController.minScale = 0.01f
+                transformableNode.scaleController.maxScale = 10f
+                transformableNode.scaleController.minScale = 0.01f
                 transformableNode.setOnTapListener(this)
                 arFragment.arSceneView.scene.addOnUpdateListener(this)
                 lastAnchorNode = anchorNode
