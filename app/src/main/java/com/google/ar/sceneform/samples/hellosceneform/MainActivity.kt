@@ -238,13 +238,12 @@ class MainActivity : AppCompatActivity(), Node.OnTapListener, Scene.OnUpdateList
             activity.finish()
             return false
         }
-        val openGlVersionString = (Objects.requireNonNull(activity.getSystemService(Context.ACTIVITY_SERVICE)) as ActivityManager)
+        val openGlVersionString = (activity.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager)
                 .deviceConfigurationInfo
                 .glEsVersion
         if (java.lang.Double.parseDouble(openGlVersionString) < MIN_OPENGL_VERSION) {
             Log.e(TAG, "Sceneform requires OpenGL ES 3.0 later")
-            Toast.makeText(activity, "Sceneform requires OpenGL ES 3.0 or later", Toast.LENGTH_LONG)
-                    .show()
+            makeText(applicationContext, "Sceneform requires OpenGL ES 3.0 or later", Toast.LENGTH_LONG).show()
             activity.finish()
             return false
         }
